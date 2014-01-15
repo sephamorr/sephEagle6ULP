@@ -1,0 +1,17 @@
+board(B) {
+string s;
+string cmd = "grid mm; ";
+
+B.signals(S) {
+S.polygons(P) {
+P.wires(W) {
+s="";
+sprintf(s, "ripup (%f %f);", u2mm(W.x1), u2mm(W.y1));
+cmd+=s;
+break;
+}
+}
+}
+cmd += "grid last;";
+exit(cmd);
+}
